@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
+import LeftNav from "../components/LeftNav";
 import Navbar from "../components/Navbar";
 
 export default function HomeLayout() {
@@ -14,7 +15,14 @@ export default function HomeLayout() {
       <nav className="py-4">
         <Navbar></Navbar>
       </nav>
-      <main></main>
+
+      <main className="grid md:grid-cols-12 gap-3 py-5">
+        <aside className="col-span-3">
+          <LeftNav></LeftNav>
+        </aside>
+        <main className="col-span-6">MAIN CONTENT</main>
+        <aside className="col-span-3">RIGHT NAV</aside>
+      </main>
     </div>
   );
 }
