@@ -39,7 +39,7 @@ export default function NewsCard({ news }) {
         <img
           src={news.thumbnail_url}
           alt={news.title}
-          className="w-full h-64 object-cover rounded-md my-3"
+          className="w-full h-auto object-contain rounded-md my-3"
         />
 
         {/* Details */}
