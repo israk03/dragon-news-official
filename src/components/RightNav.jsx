@@ -1,9 +1,11 @@
+import Findus from "./Findus";
 import SocialLogin from "./SocialLogin";
 
 export default function RightNav() {
   return (
-    <div>
+    <div className="space-y-4">
       <SocialLogin></SocialLogin>
+      <Findus></Findus>
     </div>
   );
 }
