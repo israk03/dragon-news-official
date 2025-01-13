@@ -14,9 +14,7 @@ export default function Navbar() {
         <div>
           <img src={user} alt="" />
         </div>
-        <button className="btn btn-neutral bg-gray-200 px-3 py-2 rounded-sm">
-          Login
-        </button>
+        <button className="btn btn-neutral px-3 py-2 rounded-sm">Login</button>
       </div>
     </div>
   );

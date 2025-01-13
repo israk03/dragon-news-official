@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import LeftNav from "../components/LeftNav";
 import Navbar from "../components/Navbar";
+import RightNav from "../components/RightNav";
 
 export default function HomeLayout() {
   return (
@@ -21,7 +22,9 @@ export default function HomeLayout() {
           <LeftNav></LeftNav>
         </aside>
         <main className="col-span-6">MAIN CONTENT</main>
-        <aside className="col-span-3">RIGHT NAV</aside>
+        <aside className="col-span-3">
+          <RightNav></RightNav>
+        </aside>
       </main>
     </div>
   );
