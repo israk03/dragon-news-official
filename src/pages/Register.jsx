@@ -1,11 +1,39 @@
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+
 export default function Register() {
+  const { setUser, createNewUser } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // get form data
+    const form = new FormData(e.target);
+
+    const name = form.get("name");
+    const email = form.get("email");
+    const password = form.get("password");
+    const photo = form.get("photo");
+    // console.log({ name, email, password, photo });
+
+    // create new user
+    createNewUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="w-full max-w-md bg-white p-8 rounded-sm">
         <h2 className="text-2xl font-semibold text-center mb-6">
           Register your account
         </h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Name Input */}
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-medium mb-1">
@@ -13,7 +41,7 @@ export default function Register() {
             </label>
             <input
               type="name"
-              id="name"
+              name="name"
               placeholder="Enter your name"
               className="input input-bordered w-full"
               required
@@ -26,7 +54,7 @@ export default function Register() {
             </label>
             <input
               type="email"
-              id="email"
+              name="email"
               placeholder="Enter your email address"
               className="input input-bordered w-full"
               required
@@ -39,7 +67,7 @@ export default function Register() {
             </label>
             <input
               type="photo"
-              id="photo"
+              name="photo"
               placeholder="Enter your photo url"
               className="input input-bordered w-full"
               required
@@ -56,7 +84,7 @@ export default function Register() {
             </label>
             <input
               type="password"
-              id="password"
+              name="password"
               placeholder="Enter your password"
               className="input input-bordered w-full"
               required
@@ -66,7 +94,7 @@ export default function Register() {
           <div className="flex items-center mb-6">
             <input
               type="checkbox"
-              id="terms"
+              name="terms"
               className="checkbox checkbox-sm mr-2"
               required
             />
