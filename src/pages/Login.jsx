@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const { loginUser, setUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const location = useLocation();
   console.log(location);
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export default function Login() {
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
       });
   };
   return (
@@ -31,6 +32,9 @@ export default function Login() {
         <h2 className="text-2xl font-semibold text-center mb-6">
           Login your account
         </h2>
+        {error && (
+          <div className="mb-4 text-red-500 text-sm text-center">{error}</div>
+        )}
         <form onSubmit={handleLogin}>
           {/* Email Input */}
           <div className="mb-4">
@@ -47,7 +51,7 @@ export default function Login() {
           </div>
 
           {/* Password Input */}
-          <div className="mb-6">
+          <div className="">
             <label
               htmlFor="password"
               className="block text-sm font-medium mb-1"
@@ -62,6 +66,13 @@ export default function Login() {
               required
             />
           </div>
+
+          {/* Forgot Password Link */}
+          <p className="text-sm mb-6">
+            <a href="" className="text-blue-500 hover:underline">
+              Forgot Password?
+            </a>
+          </p>
 
           {/* Login Button */}
           <button

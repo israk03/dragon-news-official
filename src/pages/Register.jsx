@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 export default function Register() {
   const { setUser, createNewUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -22,9 +23,8 @@ export default function Register() {
         setUser(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        setError(errorMessage);
       });
   };
   return (
@@ -33,6 +33,9 @@ export default function Register() {
         <h2 className="text-2xl font-semibold text-center mb-6">
           Register your account
         </h2>
+        {error && (
+          <div className="mb-4 text-red-500 text-sm text-center">{error}</div>
+        )}
         <form onSubmit={handleSubmit}>
           {/* Name Input */}
           <div className="mb-4">
