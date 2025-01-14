@@ -1,4 +1,5 @@
 import { FaBookmark, FaEye, FaShareAlt, FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function NewsCard({ news }) {
   return (
@@ -45,7 +46,9 @@ export default function NewsCard({ news }) {
         {/* Details */}
         <p className="text-sm text-gray-600">
           {news.details.slice(0, 150)}...{" "}
-          <span className="text-blue-500">Read More</span>
+          <Link to={`/news/${news._id}`} className="text-blue-500">
+            Read More
+          </Link>
         </p>
 
         {/* Footer */}

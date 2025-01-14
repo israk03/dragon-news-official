@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Navigate } from "react-router-dom";
 
 export default function Login() {
   const { loginUser, setUser } = useContext(AuthContext);
@@ -14,7 +13,7 @@ export default function Login() {
 
     loginUser(mail, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);s
         setUser(result.user);
       })
       .catch((error) => {
