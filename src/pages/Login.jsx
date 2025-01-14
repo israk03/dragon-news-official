@@ -6,7 +6,7 @@ export default function Login() {
   const { loginUser, setUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
