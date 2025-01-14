@@ -16,7 +16,16 @@ export default function Navbar() {
       </div>
       <div className="login flex items-center gap-2">
         <div>
-          <img className="rounded-full" src={dp} alt="" />
+          {user ? (
+            <div>
+              <img className="rounded-full w-10" src={user.photoURL} alt="" />
+              <p>{user.displayName}</p>
+            </div>
+          ) : (
+            <div>
+              <img className="rounded-full" src={dp} alt="" />
+            </div>
+          )}
         </div>
 
         {user ? (
