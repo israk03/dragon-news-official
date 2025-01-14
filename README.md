@@ -1,6 +1,4 @@
-# <img src="/src/assets/logo.png" alt="Dragon News Logo" width="50" />
-
-## Dragon News
+# <img src="/src/assets/logo.png">
 
 **Dragon News** is a responsive front-end web application built with React that delivers real-time news articles on a variety of topics, complete with user authentication for personalized access. Built with modern web technologies, the app ensures a seamless user experience across devices and secure login functionality using Firebase authentication. Let's build the project together. 😎
 
